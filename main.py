@@ -30,7 +30,7 @@ def increment(event: me.ClickEvent):
             "https://cdn.jsdelivr.net",
         ]
     )
-)  #
+)
 def counter_page():
     state = me.state(State)
     me.text(f"count={state.count}")
@@ -55,9 +55,16 @@ def web_component(on_value: Callable[[mel.WebEvent], Any]):
     )
 
 
-app.mount("/", WSGIMiddleware(me))
+app.mount("/", WSGIMiddleware(me.create_wsgi_app(debug_mode=True)))
 
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True,
+        reload_includes=["*.py", "*.js"],
+        timeout_graceful_shutdown=0,
+    )

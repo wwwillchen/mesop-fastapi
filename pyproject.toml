@@ -3,9 +3,13 @@ name = "mesop-mounted"
 version = "0.1.0"
 description = "Add your description here"
 authors = [{ name = "Will Chen" }]
-dependencies = ["mesop>=0.12.0", "fastapi>=0.112.1", "uvicorn>=0.30.6"]
+dependencies = [
+    "mesop>=0.12.0",
+    "fastapi[standard]>=0.112.1",
+    "uvicorn>=0.30.6",
+]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.10"
 
 [build-system]
 requires = ["hatchling"]

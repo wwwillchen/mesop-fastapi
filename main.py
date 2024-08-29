@@ -1,3 +1,4 @@
+import os
 from typing import Any, Callable
 import mesop as me
 import mesop.labs as mel
@@ -55,7 +56,12 @@ def web_component(on_value: Callable[[mel.WebEvent], Any]):
     )
 
 
-app.mount("/", WSGIMiddleware(me.create_wsgi_app(debug_mode=True)))
+app.mount(
+    "/",
+    WSGIMiddleware(
+        me.create_wsgi_app(debug_mode=os.environ.get("DEBUG_MODE", "") == "true")
+    ),
+)
 
 if __name__ == "__main__":
     import uvicorn

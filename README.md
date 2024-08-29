@@ -11,7 +11,7 @@ This project uses `uv` so you will need to [install it](https://docs.astral.sh/u
 You can run it like this:
 
 ```sh
-uv run main.py
+DEBUG_MODE=true uv run main.py
 ```
 
 But if you're developing locally, you will most likely want to enable [auto-reloading](https://www.uvicorn.org/settings/#development) with `uvicorn`.

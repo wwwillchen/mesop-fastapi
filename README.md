@@ -1,6 +1,8 @@
 # Mesop FastAPI Example
 
-This example shows you how to use Mesop and FastAPI together
+This example shows you how to use Mesop and FastAPI together.
+
+The example has an HTTP endpoint `/hello` with FastAPI and a Mesop web component which fetches from the endpoint and displays the results in the UI.
 
 ## How to run
 
@@ -26,3 +28,6 @@ uv run fastapi run
 
 > Note: `uv run` is just a wrapper to use the fastapi command with the uv virtual environment.
 
+### Limitations
+
+Right now Mesop hot reload doesn't work when running with the commands above. You can use the regular Mesop CLI command `mesop main.py` which supports hot reloading, but then the fastapi server isn't running. If you'd like this supported, please upvote: https://github.com/google/mesop/issues/894.
